@@ -1,0 +1,91 @@
+{{ define "users/index" }}
+    {{ template "layout/header" .}}
+    <div class="ui container">
+        <div class="ui padded grid stackable">
+            <div class="four wide column computer only">
+                <div class="ui card">
+                    <div class="image">
+                        <img src="{{.user.Avatar}}">
+                    </div>
+                    <div class="content">
+                        <a class="header">{{.user.Nickname}}</a>
+                        <div class="meta">
+                            <span class="date">{{formatAsDate .user.CreatedAt}} 加入本站</span>
+                        </div>
+                        <div class="description">{{.user.Autograph}} </div>
+                    </div>
+                    <div class="extra content">
+                        <a><i class="thumbtack icon"></i> {{.user.Introduction}} </a>
+                    </div>
+                </div>
+                <div class="ui cards">
+                    <div class="card">
+                        <div class="content">
+                            <img class="right floated mini ui image" src="/statics/imgs/mr.bo.png">
+                            <div class="header">Mr.bo @ 站长 </div>
+                            <div class="meta">A PHP Developer </div>
+                            <div class="description">90后 | Mr.bo | 坐标江苏 </div>
+                        </div>
+                        <div class="extra content">
+                            <div class="ui two buttons">
+                                <a class="ui basic green button" href="https://github.com/lmsail" target="_blank">Gitree</a>
+                                <a class="ui basic blue button" href="https://github.com/lmsail">Github</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{/* 博客列表 */}}
+            <div class="twelve wide column">
+                {{$selfId := .user.ID}}
+                {{range $key, $item := .list}}
+                    <article class="post" style="padding-top: 0;">
+                        <h1 class="title" style="font-size: 1.6rem"><a href="/show/{{$item.Article.ID}}">{{$item.Article.Title}}</a></h1>
+                        <div class="meta-category">
+                            {{formatAsDate $item.Article.CreatedAt}} | <a href="/list?cateId={{$item.Article.CateId}}">{{$item.Category.CateName}}</a>
+                            {{$userId := $item.UserId}}
+                            {{if eq $userId $selfId}}
+                            | <span style="cursor: pointer" onclick="delArticle(this, {{$item.Article.ID}})"><i class="icon delete"></i>删除</span>
+                            {{end}}
+                        </div>
+                        <div class="entry-content">
+                            {{mbSubstr $item.Article.Content 300}}
+                        </div>
+                    </article>
+                {{else}}
+                    <h1 style="text-align: center;padding: 5em 0">这个人很懒，什么都没写</h1>
+                {{end}}
+                {{if gt .paginator.totalpages 0}}
+                    <div class="ui grid">
+                        <div class="five wide column" style="font-size: 16px;line-height: 46px;">当前第 {{.paginator.currpage}} 页 / 共 {{.paginator.totalpages}} 页</div>
+                        <div class="eleven wide column" style="padding-right: 40px">
+                            <div class="ui pagination menu pull-right">
+                                <a class="item" href="/center/{{.user.ID}}?page={{.paginator.firstpage}}">«</a>
+                                {{$userId := .user.ID}}
+                                {{range $index, $page := .paginator.pages}}
+                                    <a href="/center/{{$userId}}?page={{$page}}" class="item {{if eq $.paginator.currpage $page }}active{{end}}">{{$page}}</a>
+                                {{end}}
+                                <a href="/center/{{.user.ID}}?page={{.paginator.lastpage}}" class="item">»</a>
+                            </div>
+                        </div>
+                        <div style="height: 20px;clear: both"></div>
+                    </div>
+                {{end}}
+            </div>
+        </div>
+    </div>
+    <script>
+        function delArticle(obj, id) {
+            $(obj).html("正在删除...");
+            $.post("/delblog", {id: id}, function(res) {
+                if (res.code === 200) {
+                    location.reload();
+                } else {
+                    $(obj).css({"color": "red"}).html("删除失败");
+                    setTimeout(() => { location.reload(); }, 2000);
+                }
+            });
+        }
+    </script>
+    {{ template "layout/footer" .}}
+{{ end }}

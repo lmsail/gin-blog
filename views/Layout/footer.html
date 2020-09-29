@@ -1,0 +1,23 @@
+{{ define "layout/footer" }}
+    <div class="ui container">
+        <div class="ui divider"></div>
+        <footer style="padding-top: 10px">&copy; LmSail 2017 ~ 2020&nbsp;·&nbsp;苏ICP备17030970号-1 · Powered By  <a href="" target="_blank"> gin-lmsail </a></footer>
+    </div>
+    <script src="/statics/js/jquery.min.js"></script>
+    <script src="/statics/js/semantic.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $(".ui.toggle.button").click(function() {
+                $(".mobile.only.grid .ui.vertical.menu").toggle(100);
+            });
+            $('.ui.dropdown').dropdown({clearable: true});
+            $(".ui.sidebar").sidebar({
+                context: $(".pushable"),
+                animation: "slide along",
+                dimPage: false
+            }).sidebar("attach events", ".ui.top.attached.blue.button");
+        });
+    </script>
+</body>
+</html>
+{{ end }}

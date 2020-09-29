@@ -1,0 +1,979 @@
+@charset "UTF-8";
+* {
+    font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+}
+.typeface {
+    font-family: josefin sans,-apple-system,BlinkMacSystemFont,helvetica neue,pingfang sc,hiragino sans gb,STHeiti,microsoft yahei,wenquanyi micro hei,Arial,Verdana,sans-serif;
+}
+@font-face {
+    font-family: josefin sans;
+    font-style: normal;
+    font-weight: 400;
+    src: local("Josefin Sans"),local("JosefinSans-Normal"),url(//lib.baomitu.com/fonts/josefin-sans/josefin-sans-regular.eot?#iefix) format("embedded-opentype"),url(//lib.baomitu.com/fonts/josefin-sans/josefin-sans-regular.woff2) format("woff2"),url(//lib.baomitu.com/fonts/josefin-sans/josefin-sans-regular.woff) format("woff"),url(//lib.baomitu.com/fonts/josefin-sans/josefin-sans-regular.ttf) format("truetype"),url(//lib.baomitu.com/fonts/josefin-sans/josefin-sans-regular.svg#JosefinSans) format("svg")
+}
+pre {
+    font-family: Menlo,Monaco,Consolas,Courier New,monospace;
+    line-height: 1.45em;
+    padding: 10px;
+    background: #f8f8f8;
+    color: #000;
+    border-radius: 5px;
+}
+
+.mt-50 {
+    margin-top: 50px!important;
+}
+.mt-40 {
+    margin-top: 40px!important;
+}
+.mt-30 {
+    margin-top: 30px!important;
+}
+.mt-20 {
+    margin-top: 20px!important;
+}
+.mt-10 {
+    margin-top: 10px!important;
+}
+.pull-right {float: right!important;}
+
+.border-b {
+    border-bottom: 1px solid #ddd;
+}
+.border-l {
+    border-left: 1px solid #ddd;
+}
+.border-t {
+    border-top: 1px solid #ddd;
+}
+.border-r {
+    border-right: 1px solid #ddd;
+}
+
+.status-text {
+    font-size: 1.334rem;
+    white-space: nowrap;
+    color: #ddd;
+    cursor: default;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.status-light {
+    font-size: 1.15rem;
+    white-space: nowrap;
+    color: #007fff;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.form-title {
+    font-size: 16px;
+    margin-top: 30px;
+}
+
+/* 注册 */
+.register {
+    background: #f0f2f5 url("/statics/imgs/login/loginbg.svg") no-repeat;
+    background-size: 100%;
+    height: 100vh;
+    width: 100vw;
+    padding: 32px 0 24px;
+}
+.register-logo {
+    text-align: center;
+}
+.register-logo .logo {
+    height: 44px;
+    line-height: 44px;
+    color: rgba(0,0,0,.85);
+    font-weight: 600;
+    font-size: 33px;
+    margin-top: 40px;
+    font-family: Avenir,Helvetica Neue,Arial,Helvetica,sans-serif;
+}
+.register-logo .logo img {
+    width: 40px;
+    display: inline-block;
+    vertical-align: middle;
+}
+.register-logo .desc {
+    margin-bottom: 20px;
+    color: rgba(0,0,0,.45);
+    font-size: 14px;
+}
+.register-form {
+    width: 350px;
+    margin: 0 auto;
+}
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
+    text-align: center;
+    padding: 24px 50px;
+    font-size: 14px;
+}
+.footer .column {
+    color: rgba(0,0,0,.65)!important;
+}
+
+.footer-show {
+    color: #999;
+    display: flex;
+    height: 54px;
+    line-height: 1;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-family: josefin sans,-apple-system,BlinkMacSystemFont,helvetica neue,pingfang sc,hiragino sans gb,STHeiti,microsoft yahei,wenquanyi micro hei,Arial,Verdana,sans-serif;
+}
+
+/* 首页 */
+.index-header {
+    height: 1.5rem;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+
+.index-content {
+    min-height: 80px;max-height: 80px;
+    width: 100%;
+    overflow: hidden;
+}
+
+/* 文章发布页 */
+.article-write .header {
+    height: 63px;
+    line-height: 63px;
+    padding: 0 1.4rem;
+    overflow: hidden;
+}
+
+.article-write .header #avatar {
+    margin-top: calc(calc(63px - 2em) / 2);
+}
+
+.article-write .write-footer {
+    height: 40px;
+    line-height: 10px;
+    color: #999;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.article-write .write-footer .ui.grid {
+    margin: 0!important;
+    padding: 0!important;
+    height: 100%;
+}
+
+.article-write .write-footer .eight:last-child {
+    border-left: 1px solid #ddd;
+}
+
+.article-write .content {
+    padding-top: 63px;
+    height: calc(100vh - 103px);
+    overflow: hidden;
+}
+
+.article-write .write-input {
+    width: 100%;
+    height: 60px;
+    margin: 0;
+    padding: 0;
+    font-size: 1.8rem;
+    color: #000;
+    border: none;
+    outline: none;
+    letter-spacing: 2px;
+}
+
+/* 编辑器样式修改 */
+.article-write .editor-toolbar {
+    display: none;
+}
+
+.CodeMirror, .CodeMirror-scroll {
+    padding: 0.5rem;
+    font-family: Monaco,Menlo,Ubuntu Mono,Consolas,source-code-pro,monospace;
+}
+
+.CodeMirror {
+    border-right: none!important;
+    border-radius: 0!important;
+    background: #fff;
+    position: fixed!important;
+    left: 0;
+    right: 0;
+    z-index: 9;
+    top: 63px!important;
+    bottom: 40px!important;
+}
+
+.CodeMirror-fullscreen,.editor-preview-side {
+    top: 63px!important;
+    bottom: 40px!important;
+}
+
+.CodeMirror-wrap pre,.editor-preview-side {
+    letter-spacing: 2px;
+}
+
+/* 博客列表 */
+article {
+    padding: 15px 0;
+    position: relative;
+}
+article:first-child {
+    padding-top: 15px;
+}
+article:nth-child(5n) .entry-content {
+    border: none;
+}
+article h1.title {
+    color: #555;
+    text-align: left;
+    font-size: 2em;
+    font-weight: bold;
+    margin: 0 0 5px;
+}
+article h1.title a {
+    color: #333;
+    transition: color .3s;
+}
+article .entry-content {
+    color: #444;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.8;
+    word-wrap: break-word;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #eee;
+}
+.sub-title {
+    position: relative;
+    width: 100%;
+    font-size: 32px;
+    margin: 30px 0 0;
+}
+.sub {
+    font-size: 14px;
+}
+
+.item.active {
+    background: #1b1c1d!important;
+    color: #fff!important;
+}
+.meta-category {
+    padding: 0;
+    color: #999;
+    text-align: left;
+    font-size: 1.1rem;
+    margin: 3px 0 15px 0;
+    display: inline-block;
+}
+.meta-category a {
+    color: #6E7173;
+    position: relative;
+    margin-left: 1.8em;
+}
+.meta-category a:before, .meta-category a:after {
+    content: '';
+    margin-left: -1.5em;
+    position: absolute;
+}
+.meta-category a:before {
+    width: 18px;
+    height: 12px;
+    background: #0089e0;
+    border-radius: 0 0 1px 1px;
+    margin-top: 4px;
+}
+.meta-category a:after {
+    width: 6px;
+    height: 0;
+    left: 3px;
+    border-style: solid;
+    border-color: transparent transparent #0089e0 transparent;
+    border-width: 0 1px 2px 1px;
+    background: transparent;
+    margin-top: 2px;
+}
+
+.widget-title {
+    color: #6E7173;
+    display: block;
+    font-size: 18px;
+    padding-bottom: 15px;
+    font-weight: 700;
+    border-bottom: 1px solid #ddd;
+}
+
+.widget-list {
+    list-style: none;
+    padding: 0;
+}
+
+.widget-list li {
+    margin: 5px 0;
+    line-height: 1.5;
+    height: 2rem;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+
+.widget-list li a {
+    color: #6E7173;
+    font-size: 16px;
+}
+
+/* markdown 样式 */
+.article-content pre[class*=language-],.editor-preview pre,.editor-preview-active-side pre,.markdown-body pre,.ticle-content :not(pre)>code[class*=language-] {
+    border-radius: 0;
+    padding: 1.5em 35px
+}
+
+.ui.segment.markdown-body,.ui.segments .segment {
+    font-size: 15px;
+    margin: 0
+}
+
+.editor-preview,.markdown-body,.markdown-reply {
+    overflow: visible
+}
+
+.editor-preview,.editor-preview-active-side,.markdown-body,.markdown-reply {
+    font-size: 18px;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    line-height: 1.6;
+    word-wrap: break-word
+}
+
+.editor-preview a,.editor-preview-active-side a,.markdown-body a,.markdown-reply a {
+    background: 0 0
+}
+
+.editor-preview a:active,.editor-preview a:hover,.editor-preview-active-side a:active,.editor-preview-active-side a:hover,.markdown-body a:active,.markdown-body a:hover,.markdown-reply a:active,.markdown-reply a:hover {
+    outline: 0
+}
+
+.editor-preview ol li,.editor-preview-active-side ol li,.markdown-body ol li,.markdown-reply ol li {
+    margin: 8px 0
+}
+
+.editor-preview strong,.editor-preview-active-side strong,.markdown-body strong,.markdown-reply strong {
+    font-weight: 700
+}
+
+.editor-preview h1,.editor-preview-active-side h1,.markdown-body h1,.markdown-reply h1 {
+    font-size: 2em;
+    margin: .67em 0
+}
+
+.editor-preview img,.editor-preview-active-side img,.markdown-body img,.markdown-reply img {
+    border: 0
+}
+
+.editor-preview hr,.editor-preview-active-side hr,.markdown-body hr,.markdown-reply hr {
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+    height: 0
+}
+
+.editor-preview table,.editor-preview-active-side table,.markdown-body table,.markdown-reply table {
+    border-collapse: collapse;
+    border-spacing: 0
+}
+
+.editor-preview td,.editor-preview th,.editor-preview-active-side td,.editor-preview-active-side th,.markdown-body td,.markdown-body th,.markdown-reply td,.markdown-reply th {
+    padding: 0
+}
+
+.editor-preview *,.editor-preview-active-side *,.markdown-body *,.markdown-reply * {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box
+}
+
+.editor-preview a,.editor-preview a:active,.editor-preview a:focus,.editor-preview a:hover,.editor-preview-active-side a,.editor-preview-active-side a:active,.editor-preview-active-side a:focus,.editor-preview-active-side a:hover,.markdown-body a,.markdown-body a:active,.markdown-body a:focus,.markdown-body a:hover,.markdown-reply a,.markdown-reply a:active,.markdown-reply a:focus,.markdown-reply a:hover {
+    text-decoration: none
+}
+
+.editor-preview hr,.editor-preview-active-side hr,.markdown-body hr,.markdown-reply hr {
+    height: 0;
+    overflow: hidden;
+    background: 0 0;
+    border: 2px dashed #f0f4f6;
+    border-bottom: 0;
+    margin: 18px auto;
+    width: 50%
+}
+
+.editor-preview hr:after,.editor-preview hr:before,.editor-preview-active-side hr:after,.editor-preview-active-side hr:before,.markdown-body hr:after,.markdown-body hr:before,.markdown-reply hr:after,.markdown-reply hr:before {
+    display: table;
+    content: " "
+}
+
+.editor-preview hr:after,.editor-preview-active-side hr:after,.markdown-body hr:after,.markdown-reply hr:after {
+    clear: both
+}
+
+.editor-preview h1,.editor-preview h2,.editor-preview h3,.editor-preview h4,.editor-preview h5,.editor-preview h6,.editor-preview-active-side h1,.editor-preview-active-side h2,.editor-preview-active-side h3,.editor-preview-active-side h4,.editor-preview-active-side h5,.editor-preview-active-side h6,.markdown-body h1,.markdown-body h2,.markdown-body h3,.markdown-body h4,.markdown-body h5,.markdown-body h6,.markdown-reply h1,.markdown-reply h2,.markdown-reply h3,.markdown-reply h4,.markdown-reply h5,.markdown-reply h6 {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    line-height: 1.1;
+    font-weight: 400
+}
+
+.editor-preview h1,.editor-preview-active-side h1,.markdown-body h1,.markdown-reply h1 {
+    font-size: 30px
+}
+
+.editor-preview h2,.editor-preview-active-side h2,.markdown-body h2,.markdown-reply h2 {
+    font-size: 21px
+}
+
+.editor-preview h3,.editor-preview-active-side h3,.markdown-body h3,.markdown-reply h3 {
+    font-size: 16px
+}
+
+.editor-preview h4,.editor-preview-active-side h4,.markdown-body h4,.markdown-reply h4 {
+    font-size: 14px
+}
+
+.editor-preview h5,.editor-preview-active-side h5,.markdown-body h5,.markdown-reply h5 {
+    font-size: 12px
+}
+
+.editor-preview h6,.editor-preview-active-side h6,.markdown-body h6,.markdown-reply h6 {
+    font-size: 11px
+}
+
+.editor-preview blockquote,.editor-preview-active-side blockquote,.markdown-body blockquote,.markdown-reply blockquote {
+    margin: 0
+}
+
+.editor-preview blockquote ol:last-child,.editor-preview blockquote p:last-child,.editor-preview blockquote ul:last-child,.editor-preview-active-side blockquote ol:last-child,.editor-preview-active-side blockquote p:last-child,.editor-preview-active-side blockquote ul:last-child,.markdown-body blockquote ol:last-child,.markdown-body blockquote p:last-child,.markdown-body blockquote ul:last-child,.markdown-reply blockquote ol:last-child,.markdown-reply blockquote p:last-child,.markdown-reply blockquote ul:last-child {
+    margin-bottom: 0
+}
+
+.editor-preview ol,.editor-preview ul,.editor-preview-active-side ol,.editor-preview-active-side ul,.markdown-body ol,.markdown-body ul,.markdown-reply ol,.markdown-reply ul {
+    padding: 0;
+    margin-top: 0;
+    margin-bottom: 0
+}
+
+.editor-preview ol ol,.editor-preview-active-side ol ol,.markdown-body ol ol,.markdown-reply ol ol {
+    list-style-type: lower-roman
+}
+
+.editor-preview dd,.editor-preview-active-side dd,.markdown-body dd,.markdown-reply dd {
+    margin-left: 0
+}
+
+.editor-preview code,.editor-preview pre,.editor-preview-active-side code,.editor-preview-active-side pre,.markdown-body code,.markdown-body pre,.markdown-reply code,.markdown-reply pre {
+    font-family: monaco,Consolas,Liberation Mono,Menlo,Courier,monospace;
+    font-size: 1em
+}
+
+.editor-preview pre,.editor-preview-active-side pre,.markdown-body pre,.markdown-reply pre {
+    margin-top: 0;
+    margin-bottom: 0;
+    overflow: auto
+}
+
+.editor-preview .markdown-body>:first-child,.editor-preview-active-side .markdown-body>:first-child,.markdown-body .markdown-body>:first-child,.markdown-reply .markdown-body>:first-child {
+    margin-top: 0!important
+}
+
+.editor-preview .markdown-body>:last-child,.editor-preview-active-side .markdown-body>:last-child,.markdown-body .markdown-body>:last-child,.markdown-reply .markdown-body>:last-child {
+    margin-bottom: 0!important
+}
+
+.editor-preview .anchor,.editor-preview-active-side .anchor,.markdown-body .anchor,.markdown-reply .anchor {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    display: block;
+    padding-right: 6px;
+    padding-left: 30px;
+    margin-left: -30px
+}
+
+.editor-preview .anchor:focus,.editor-preview-active-side .anchor:focus,.markdown-body .anchor:focus,.markdown-reply .anchor:focus {
+    outline: 0
+}
+
+.editor-preview h1,.editor-preview h2,.editor-preview h3,.editor-preview h4,.editor-preview h5,.editor-preview h6,.editor-preview-active-side h1,.editor-preview-active-side h2,.editor-preview-active-side h3,.editor-preview-active-side h4,.editor-preview-active-side h5,.editor-preview-active-side h6,.markdown-body h1,.markdown-body h2,.markdown-body h3,.markdown-body h4,.markdown-body h5,.markdown-body h6,.markdown-reply h1,.markdown-reply h2,.markdown-reply h3,.markdown-reply h4,.markdown-reply h5,.markdown-reply h6 {
+    position: relative;
+    margin-top: 1.2em;
+    line-height: 1.4;
+    font-weight: 700
+}
+
+.editor-preview h1,.editor-preview-active-side h1,.markdown-body h1,.markdown-reply h1 {
+    padding-bottom: .3em;
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee
+}
+
+.editor-preview h2,.editor-preview-active-side h2,.markdown-body h2,.markdown-reply h2 {
+    padding-bottom: .3em;
+    font-size: 1.3em;
+    line-height: 1.225;
+}
+
+.editor-preview h3,.editor-preview-active-side h3,.markdown-body h3,.markdown-reply h3 {
+    font-size: 1.2em;
+    line-height: 1.43
+}
+
+.editor-preview h4,.editor-preview-active-side h4,.markdown-body h4,.markdown-reply h4 {
+    font-size: 1.1em
+}
+
+.editor-preview h5,.editor-preview-active-side h5,.markdown-body h5,.markdown-reply h5 {
+    font-size: 1em
+}
+
+.editor-preview h6,.editor-preview-active-side h6,.markdown-body h6,.markdown-reply h6 {
+    font-size: .9em;
+    color: #777
+}
+
+.editor-preview blockquote,.editor-preview dl,.editor-preview ol,.editor-preview p,.editor-preview pre,.editor-preview table,.editor-preview ul,.editor-preview-active-side blockquote,.editor-preview-active-side dl,.editor-preview-active-side ol,.editor-preview-active-side p,.editor-preview-active-side pre,.editor-preview-active-side table,.editor-preview-active-side ul,.markdown-body blockquote,.markdown-body dl,.markdown-body ol,.markdown-body p,.markdown-body pre,.markdown-body table,.markdown-body ul,.markdown-reply blockquote,.markdown-reply dl,.markdown-reply ol,.markdown-reply p,.markdown-reply pre,.markdown-reply table,.markdown-reply ul {
+    margin-top: 0;
+    margin-bottom: 10px;
+    line-height: 30px
+}
+
+.editor-preview ol,.editor-preview ul,.editor-preview-active-side ol,.editor-preview-active-side ul,.markdown-body ol,.markdown-body ul,.markdown-reply ol,.markdown-reply ul {
+    padding-left: 2em;
+    padding: 10px 20px 10px 30px;
+    color: #7d8688
+}
+
+.editor-preview ol ol,.editor-preview ol ul,.editor-preview-active-side ol ol,.editor-preview-active-side ol ul,.markdown-body ol ol,.markdown-body ol ul,.markdown-reply ol ol,.markdown-reply ol ul {
+    margin-top: 0;
+    margin-bottom: 0
+}
+
+.editor-preview li>p,.editor-preview-active-side li>p,.markdown-body li>p,.markdown-reply li>p {
+    margin-top: 16px
+}
+
+.editor-preview dl,.editor-preview-active-side dl,.markdown-body dl,.markdown-reply dl {
+    padding: 0
+}
+
+.editor-preview dl dt,.editor-preview-active-side dl dt,.markdown-body dl dt,.markdown-reply dl dt {
+    padding: 0;
+    margin-top: 16px;
+    font-size: 1em;
+    font-style: italic;
+    font-weight: 700
+}
+
+.editor-preview dl dd,.editor-preview-active-side dl dd,.markdown-body dl dd,.markdown-reply dl dd {
+    padding: 0 16px;
+    margin-bottom: 16px
+}
+
+.editor-preview blockquote,.editor-preview-active-side blockquote,.markdown-body blockquote,.markdown-reply blockquote {
+    font-size: inherit;
+    padding: 0 15px;
+    color: #777;
+    border-left: 4px solid #ddd
+}
+
+.editor-preview blockquote code,.editor-preview-active-side blockquote code,.markdown-body blockquote code,.markdown-reply blockquote code {
+    color: inherit;
+    background-color: transparent;
+    border: 1px solid #d1e0f3
+}
+
+.editor-preview blockquote,.editor-preview-active-side blockquote,.markdown-body blockquote,.markdown-reply blockquote {
+    background-color: #f5f8fc;
+    padding: 1rem;
+    color: #8796a8;
+    border-left: none
+}
+
+.editor-preview table,.editor-preview-active-side table,.markdown-body table,.markdown-reply table {
+    display: block;
+    width: 100%;
+    overflow: auto;
+    margin: 25px 0
+}
+
+.editor-preview table th,.editor-preview-active-side table th,.markdown-body table th,.markdown-reply table th {
+    font-weight: 700
+}
+
+.editor-preview table td,.editor-preview table th,.editor-preview-active-side table td,.editor-preview-active-side table th,.markdown-body table td,.markdown-body table th,.markdown-reply table td,.markdown-reply table th {
+    padding: 6px 13px;
+    border: 1px solid #ddd
+}
+
+.editor-preview table tr,.editor-preview-active-side table tr,.markdown-body table tr,.markdown-reply table tr {
+    background-color: #fff;
+    border-top: 1px solid #ccc
+}
+
+.editor-preview table tr:nth-child(2n),.editor-preview-active-side table tr:nth-child(2n),.markdown-body table tr:nth-child(2n),.markdown-reply table tr:nth-child(2n) {
+    background-color: #f8f8f8
+}
+
+.editor-preview img,.editor-preview-active-side img,.markdown-body img,.markdown-reply img {
+    max-width: 100%;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box
+}
+
+.editor-preview img:not(.emoji),.editor-preview-active-side img:not(.emoji),.markdown-body img:not(.emoji),.markdown-reply img:not(.emoji) {
+    margin-bottom: 30px;
+    margin-top: 10px;
+    border: 1px solid #ddd;
+    -webkit-box-shadow: 0 0 30px #ccc;
+    box-shadow: 0 0 30px #ccc
+}
+
+.editor-preview img.rm-style,.editor-preview-active-side img.rm-style,.markdown-body img.rm-style,.markdown-reply img.rm-style {
+    border: none;
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    margin-bottom: 0;
+    margin-top: 0
+}
+
+.editor-preview code,.editor-preview-active-side code,.markdown-body code,.markdown-reply code {
+    background: rgba(90,87,87,0);
+    margin: 5px;
+    color: #858080;
+    border-radius: 4px;
+    background-color: #f9fafa;
+    border: 1px solid #e4e4e4;
+    max-width: 740px;
+    overflow-x: auto;
+    font-size: 14px;
+    padding: 1px 2px
+}
+
+.editor-preview code:after,.editor-preview code:before,.editor-preview-active-side code:after,.editor-preview-active-side code:before,.markdown-body code:after,.markdown-body code:before,.markdown-reply code:after,.markdown-reply code:before {
+    letter-spacing: -.2em;
+    content: "\A0"
+}
+
+.editor-preview pre>code,.editor-preview-active-side pre>code,.markdown-body pre>code,.markdown-reply pre>code {
+    padding: 0;
+    margin: 0;
+    white-space: pre;
+    background: 0 0;
+    border: 0
+}
+
+.editor-preview .highlight,.editor-preview-active-side .highlight,.markdown-body .highlight,.markdown-reply .highlight {
+    margin-bottom: 16px
+}
+
+.editor-preview .highlight pre,.editor-preview pre,.editor-preview-active-side .highlight pre,.editor-preview-active-side pre,.markdown-body .highlight pre,.markdown-body pre,.markdown-reply .highlight pre,.markdown-reply pre {
+    padding: 14px;
+    overflow: auto;
+    line-height: 1.45;
+    border-radius: 3px;
+    color: #fff;
+    border: none
+}
+
+.editor-preview .highlight pre,.editor-preview-active-side .highlight pre,.markdown-body .highlight pre,.markdown-reply .highlight pre {
+    margin-bottom: 0
+}
+
+.editor-preview pre,.editor-preview-active-side pre,.markdown-body pre,.markdown-reply pre {
+    word-wrap: normal;
+    background: #384548;
+    border: 1px solid #efefef;
+    -webkit-box-shadow: 0 2px 5px 0 hsla(0,0%,78%,.16),0 2px 10px 0 hsla(0,0%,95%,.12);
+    box-shadow: 0 2px 5px 0 hsla(0,0%,78%,.16),0 2px 10px 0 hsla(0,0%,95%,.12);
+    border-radius: 3px;
+    padding: 1.5em 35px;
+    margin-top: 1.5em;
+    margin-bottom: 1.5em
+}
+
+.editor-preview pre code,.editor-preview-active-side pre code,.markdown-body pre code,.markdown-reply pre code {
+    display: block;
+    padding: 0;
+    margin: 0;
+    overflow: initial;
+    line-height: 24px;
+    word-wrap: normal;
+    border: 0;
+    color: #fff;
+}
+
+.editor-preview pre code:after,.editor-preview pre code:before,.editor-preview-active-side pre code:after,.editor-preview-active-side pre code:before,.markdown-body pre code:after,.markdown-body pre code:before,.markdown-reply pre code:after,.markdown-reply pre code:before {
+    content: normal
+}
+
+.editor-preview .highlight,.editor-preview-active-side .highlight,.markdown-body .highlight,.markdown-reply .highlight {
+    background: #fff
+}
+
+.editor-preview .highlight .c,.editor-preview-active-side .highlight .c,.markdown-body .highlight .c,.markdown-reply .highlight .c {
+    color: #998;
+    font-style: italic
+}
+
+.editor-preview .highlight .err,.editor-preview-active-side .highlight .err,.markdown-body .highlight .err,.markdown-reply .highlight .err {
+    color: #a61717;
+    background-color: #e3d2d2
+}
+
+.editor-preview .highlight .k,.editor-preview .highlight .o,.editor-preview-active-side .highlight .k,.editor-preview-active-side .highlight .o,.markdown-body .highlight .k,.markdown-body .highlight .o,.markdown-reply .highlight .k,.markdown-reply .highlight .o {
+    font-weight: 700
+}
+
+.editor-preview .highlight .cm,.editor-preview-active-side .highlight .cm,.markdown-body .highlight .cm,.markdown-reply .highlight .cm {
+    color: #998;
+    font-style: italic
+}
+
+.editor-preview .highlight .cp,.editor-preview-active-side .highlight .cp,.markdown-body .highlight .cp,.markdown-reply .highlight .cp {
+    color: #999;
+    font-weight: 700
+}
+
+.editor-preview .highlight .c1,.editor-preview-active-side .highlight .c1,.markdown-body .highlight .c1,.markdown-reply .highlight .c1 {
+    color: #998;
+    font-style: italic
+}
+
+.editor-preview .highlight .cs,.editor-preview-active-side .highlight .cs,.markdown-body .highlight .cs,.markdown-reply .highlight .cs {
+    color: #999;
+    font-weight: 700;
+    font-style: italic
+}
+
+.editor-preview .highlight .gd,.editor-preview-active-side .highlight .gd,.markdown-body .highlight .gd,.markdown-reply .highlight .gd {
+    color: #000;
+    background-color: #fdd
+}
+
+.editor-preview .highlight .gd .x,.editor-preview-active-side .highlight .gd .x,.markdown-body .highlight .gd .x,.markdown-reply .highlight .gd .x {
+    color: #000;
+    background-color: #faa
+}
+
+.editor-preview .highlight .ge,.editor-preview-active-side .highlight .ge,.markdown-body .highlight .ge,.markdown-reply .highlight .ge {
+    font-style: italic
+}
+
+.editor-preview .highlight .gr,.editor-preview-active-side .highlight .gr,.markdown-body .highlight .gr,.markdown-reply .highlight .gr {
+    color: #a00
+}
+
+.editor-preview .highlight .gh,.editor-preview-active-side .highlight .gh,.markdown-body .highlight .gh,.markdown-reply .highlight .gh {
+    color: #999
+}
+
+.editor-preview .highlight .gi,.editor-preview-active-side .highlight .gi,.markdown-body .highlight .gi,.markdown-reply .highlight .gi {
+    color: #000;
+    background-color: #dfd
+}
+
+.editor-preview .highlight .gi .x,.editor-preview-active-side .highlight .gi .x,.markdown-body .highlight .gi .x,.markdown-reply .highlight .gi .x {
+    color: #000;
+    background-color: #afa
+}
+
+.editor-preview .highlight .go,.editor-preview-active-side .highlight .go,.markdown-body .highlight .go,.markdown-reply .highlight .go {
+    color: #888
+}
+
+.editor-preview .highlight .gp,.editor-preview-active-side .highlight .gp,.markdown-body .highlight .gp,.markdown-reply .highlight .gp {
+    color: #555
+}
+
+.editor-preview .highlight .gs,.editor-preview-active-side .highlight .gs,.markdown-body .highlight .gs,.markdown-reply .highlight .gs {
+    font-weight: 700
+}
+
+.editor-preview .highlight .gu,.editor-preview-active-side .highlight .gu,.markdown-body .highlight .gu,.markdown-reply .highlight .gu {
+    color: purple;
+    font-weight: 700
+}
+
+.editor-preview .highlight .gt,.editor-preview-active-side .highlight .gt,.markdown-body .highlight .gt,.markdown-reply .highlight .gt {
+    color: #a00
+}
+
+.editor-preview .highlight .kc,.editor-preview .highlight .kd,.editor-preview .highlight .kn,.editor-preview .highlight .kp,.editor-preview .highlight .kr,.editor-preview-active-side .highlight .kc,.editor-preview-active-side .highlight .kd,.editor-preview-active-side .highlight .kn,.editor-preview-active-side .highlight .kp,.editor-preview-active-side .highlight .kr,.markdown-body .highlight .kc,.markdown-body .highlight .kd,.markdown-body .highlight .kn,.markdown-body .highlight .kp,.markdown-body .highlight .kr,.markdown-reply .highlight .kc,.markdown-reply .highlight .kd,.markdown-reply .highlight .kn,.markdown-reply .highlight .kp,.markdown-reply .highlight .kr {
+    font-weight: 700
+}
+
+.editor-preview .highlight .kt,.editor-preview-active-side .highlight .kt,.markdown-body .highlight .kt,.markdown-reply .highlight .kt {
+    color: #458;
+    font-weight: 700
+}
+
+.editor-preview .highlight .m,.editor-preview-active-side .highlight .m,.markdown-body .highlight .m,.markdown-reply .highlight .m {
+    color: #099
+}
+
+.editor-preview .highlight .s,.editor-preview-active-side .highlight .s,.markdown-body .highlight .s,.markdown-reply .highlight .s {
+    color: #d14
+}
+
+.editor-preview .highlight .n,.editor-preview-active-side .highlight .n,.markdown-body .highlight .n,.markdown-reply .highlight .n {
+    color: #333
+}
+
+.editor-preview .highlight .na,.editor-preview-active-side .highlight .na,.markdown-body .highlight .na,.markdown-reply .highlight .na {
+    color: teal
+}
+
+.editor-preview .highlight .nb,.editor-preview-active-side .highlight .nb,.markdown-body .highlight .nb,.markdown-reply .highlight .nb {
+    color: #0086b3
+}
+
+.editor-preview .highlight .nc,.editor-preview-active-side .highlight .nc,.markdown-body .highlight .nc,.markdown-reply .highlight .nc {
+    color: #458;
+    font-weight: 700
+}
+
+.editor-preview .highlight .no,.editor-preview-active-side .highlight .no,.markdown-body .highlight .no,.markdown-reply .highlight .no {
+    color: teal
+}
+
+.editor-preview .highlight .ni,.editor-preview-active-side .highlight .ni,.markdown-body .highlight .ni,.markdown-reply .highlight .ni {
+    color: purple
+}
+
+.editor-preview .highlight .ne,.editor-preview .highlight .nf,.editor-preview-active-side .highlight .ne,.editor-preview-active-side .highlight .nf,.markdown-body .highlight .ne,.markdown-body .highlight .nf,.markdown-reply .highlight .ne,.markdown-reply .highlight .nf {
+    color: #900;
+    font-weight: 700
+}
+
+.editor-preview .highlight .nn,.editor-preview-active-side .highlight .nn,.markdown-body .highlight .nn,.markdown-reply .highlight .nn {
+    color: #555
+}
+
+.editor-preview .highlight .nt,.editor-preview-active-side .highlight .nt,.markdown-body .highlight .nt,.markdown-reply .highlight .nt {
+    color: navy
+}
+
+.editor-preview .highlight .nv,.editor-preview-active-side .highlight .nv,.markdown-body .highlight .nv,.markdown-reply .highlight .nv {
+    color: teal
+}
+
+.editor-preview .highlight .ow,.editor-preview-active-side .highlight .ow,.markdown-body .highlight .ow,.markdown-reply .highlight .ow {
+    font-weight: 700
+}
+
+.editor-preview .highlight .w,.editor-preview-active-side .highlight .w,.markdown-body .highlight .w,.markdown-reply .highlight .w {
+    color: #bbb
+}
+
+.editor-preview .highlight .mf,.editor-preview .highlight .mh,.editor-preview .highlight .mi,.editor-preview .highlight .mo,.editor-preview-active-side .highlight .mf,.editor-preview-active-side .highlight .mh,.editor-preview-active-side .highlight .mi,.editor-preview-active-side .highlight .mo,.markdown-body .highlight .mf,.markdown-body .highlight .mh,.markdown-body .highlight .mi,.markdown-body .highlight .mo,.markdown-reply .highlight .mf,.markdown-reply .highlight .mh,.markdown-reply .highlight .mi,.markdown-reply .highlight .mo {
+    color: #099
+}
+
+.editor-preview .highlight .s2,.editor-preview .highlight .sb,.editor-preview .highlight .sc,.editor-preview .highlight .sd,.editor-preview .highlight .se,.editor-preview .highlight .sh,.editor-preview .highlight .si,.editor-preview .highlight .sx,.editor-preview-active-side .highlight .s2,.editor-preview-active-side .highlight .sb,.editor-preview-active-side .highlight .sc,.editor-preview-active-side .highlight .sd,.editor-preview-active-side .highlight .se,.editor-preview-active-side .highlight .sh,.editor-preview-active-side .highlight .si,.editor-preview-active-side .highlight .sx,.markdown-body .highlight .s2,.markdown-body .highlight .sb,.markdown-body .highlight .sc,.markdown-body .highlight .sd,.markdown-body .highlight .se,.markdown-body .highlight .sh,.markdown-body .highlight .si,.markdown-body .highlight .sx,.markdown-reply .highlight .s2,.markdown-reply .highlight .sb,.markdown-reply .highlight .sc,.markdown-reply .highlight .sd,.markdown-reply .highlight .se,.markdown-reply .highlight .sh,.markdown-reply .highlight .si,.markdown-reply .highlight .sx {
+    color: #d14
+}
+
+.editor-preview .highlight .sr,.editor-preview-active-side .highlight .sr,.markdown-body .highlight .sr,.markdown-reply .highlight .sr {
+    color: #009926
+}
+
+.editor-preview .highlight .s1,.editor-preview-active-side .highlight .s1,.markdown-body .highlight .s1,.markdown-reply .highlight .s1 {
+    color: #d14
+}
+
+.editor-preview .highlight .ss,.editor-preview-active-side .highlight .ss,.markdown-body .highlight .ss,.markdown-reply .highlight .ss {
+    color: #990073
+}
+
+.editor-preview .highlight .bp,.editor-preview-active-side .highlight .bp,.markdown-body .highlight .bp,.markdown-reply .highlight .bp {
+    color: #999
+}
+
+.editor-preview .highlight .vc,.editor-preview .highlight .vg,.editor-preview .highlight .vi,.editor-preview-active-side .highlight .vc,.editor-preview-active-side .highlight .vg,.editor-preview-active-side .highlight .vi,.markdown-body .highlight .vc,.markdown-body .highlight .vg,.markdown-body .highlight .vi,.markdown-reply .highlight .vc,.markdown-reply .highlight .vg,.markdown-reply .highlight .vi {
+    color: teal
+}
+
+.editor-preview .highlight .il,.editor-preview-active-side .highlight .il,.markdown-body .highlight .il,.markdown-reply .highlight .il {
+    color: #099
+}
+
+.editor-preview .highlight .gc,.editor-preview-active-side .highlight .gc,.markdown-body .highlight .gc,.markdown-reply .highlight .gc {
+    color: #999;
+    background-color: #eaf2f5
+}
+
+.editor-preview pre.language-todo,.editor-preview-active-side pre.language-todo,.markdown-body pre.language-todo,.markdown-reply pre.language-todo {
+    background: #fb6c53;
+    color: #fff
+}
+
+.editor-preview pre.language-todo code.language-todo,.editor-preview-active-side pre.language-todo code.language-todo,.markdown-body pre.language-todo code.language-todo,.markdown-reply pre.language-todo code.language-todo {
+    color: #fff;
+    text-shadow: none;
+    font-weight: 700
+}
+
+.markdown-body>h2:first-child {
+    margin-top: .4em
+}
+
+.markdown-body .ui.attached.block.header {
+    border: 1px solid #d3e0e9
+}
+
+.ui.segments>.segment.markdown-body {
+    border-top: 0
+}
+
+.editor-preview-active-side pre>code {
+    font-size: 90%
+}
+
+.content-body a {
+    position: relative;
+    text-decoration: none
+}
+
+.content-body a:hover:before {
+    visibility: visible;
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1)
+}
+
+.content-body a:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    bottom: 0;
+    left: 0;
+    background-color: #4485c5;
+    visibility: hidden;
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transition: all .3s ease-in-out 0s;
+    transition: all .3s ease-in-out 0s;
+    top: 1.2em
+}

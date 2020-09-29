@@ -1,0 +1,126 @@
+{{ define "article/write" }}
+    <title>{{.title}}</title>
+    {{ template "layout/meta" .}}
+    <link rel="stylesheet" href="/statics/simplemde/simplemde.min.css">
+    <section class="article-write">
+        <form action="/write" method="post" id="blogform" style="margin: 0!important;">
+            <!-- 文章标题/头部 -->
+            <div class="ui dimmer" id="loading"><div class="ui loader"></div></div>
+            <header class="header">
+                <div class="ui grid">
+                    <div class="ten wide column">
+                        <input type="hidden" id="cateId" name="cate_id">
+                        <input type="text" name="title" id="title" placeholder="输入文章标题..." class="write-input" />
+                    </div>
+                    <div class="six wide column">
+                        <div class="ui grid">
+                            <div class="four wide column"></div>
+                            <div class="seven wide column status-text"></div>
+                            <div class="three wide column">
+                                <div class="ui dropdown">
+                                    <div class="text status-light" onclick="saveArticle();">保存&发布</div>
+                                </div>
+                            </div>
+                            <div class="two wide column">
+                                <img class="ui avatar image" id="avatar" src="{{.user.Avatar}}" onerror="javascript:this.src='/statics/imgs/avatar/avatar.png';">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <!-- 文章编辑 -->
+            <div class="content">
+                <input type="hidden" name="content" id="formContent">
+                <textarea rows="15" style="border: none;opacity: 0;" id="content" placeholder="请使用 Markdown 编写"></textarea>
+            </div>
+        </form>
+        <!-- 底部菜单 -->
+        <footer class="write-footer">
+            <div class="ui grid">
+                <div class="eight wide column">MackDown 语法</div>
+                <div class="eight wide column" onclick="preview();">预览</div>
+            </div>
+        </footer>
+    </section>
+
+    {{/* 选择文章分类 */}}
+    <div class="ui tiny modal">
+        <i class="close icon"></i>
+        <div class="header">选择博客分类</div>
+        <div class="content">
+            <div class="description">
+                <div class="ui info message">
+                    <div class="header">2020，祝大家新年快乐 </div>
+                    <ul class="list">
+                        <li>很高兴见到你。</li>
+                        <li>这只是一个小彩蛋，并没有什么用，纯属为了撑场面。</li>
+                    </ul>
+                </div>
+                <div class="ui fluid selection dropdown">
+                    <i class="dropdown icon"></i>
+                    <div class="default text">选择分类</div>
+                    <div class="menu">
+                        {{range $key, $item := .list}}
+                            <div class="item" data-value="{{$item.ID}}">{{$item.CateName}} </div>
+                        {{end}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="actions">
+            <div class="ui positive right labeled icon button" onclick="createArticle();">
+                确认
+                <i class="checkmark icon"></i>
+            </div>
+        </div>
+    </div>
+    <script src="/statics/js/jquery.min.js"></script>
+    <script src="/statics/js/message.js"></script>
+    <script src="/statics/js/semantic.min.js"></script>
+    <script src="/statics/simplemde/simplemde.min.js"></script>
+    <script>
+        var simplemde = new SimpleMDE({
+            element: document.getElementById("content"),
+            autofocus:true,
+            autosave: {
+                enabled: true,
+                uniqueId: "SimpleMDE",
+                delay: 1000,
+            }
+        });
+        simplemde.toggleSideBySide(); /* 默认开启预览模式 */
+        $('.ui.dropdown').dropdown(); /* 下拉 */
+        function saveArticle() {
+            var title = $("#title").val();
+            var content = simplemde.value();
+            if(title === "" || content == "") {
+                $('.ui.mini.modal').modal('show').find("#message").html("请输入文章标题以及文章内容");
+                return false;
+            }
+            $("#formContent").val(content);
+            $(".ui.tiny.modal").modal("show");
+        }
+        function createArticle() {
+            var cate_id = $('.ui.dropdown').dropdown('get value');
+            cate_id = cate_id.join(",").replace(',', '');
+            if(cate_id === "") {
+                $('.ui.mini.modal').modal('show').find("#message").html("请选择分类");
+                setTimeout(() => {
+                    $('.ui.tiny.modal').modal('show');
+                }, 2000);
+                return false;
+            }
+            $("#cateId").val(cate_id);
+            $("#loading").addClass("active");
+            setTimeout(() => {
+                $('#blogform').submit();
+            }, 1000);
+        }
+        function preview() {
+            simplemde.toggleSideBySide();
+        }
+        {{if .errorMsg}}
+            $.message({ message:"{{.errorMsg}}", type:'error' });
+        {{end}}
+    </script>
+{{ end }}

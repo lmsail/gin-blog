@@ -1,0 +1,70 @@
+{{ define "article/show" }}
+    {{ template "layout/header" .}}
+    <link href="/statics/prism/prism.css?v=2" rel="stylesheet">
+    <style>
+        .book-article-meta a{color:#adb1af;margin:22px 0;font-size:.9em;font-weight:700}
+        .book-article-meta .divider{color:#cacaca;margin:0 5px}
+        .text-mute{color:#a5a5a5!important}
+        .display-inline-block{display:inline-block!important}
+        .ui.statistic>.label,.ui.statistics .statistic>.label{line-height:28px;text-transform:inherit}
+        .blog.grid.container.main{display:block}
+    </style>
+    {{if .errorMsg}}
+        <!-- 文章不存在提示 -->
+        <div class="ui centered grid container message-container">
+            <div class="twelve wide column">
+                <div class="ui red message positive">
+                    <i class="close icon"></i>
+                    {{.errorMsg}}
+                </div>
+            </div>
+        </div>
+    {{else}}
+        <!-- 内容 -->
+        <div class="ui centered grid container main stackable blog" style="padding: 3em 5em;text-align: left;">
+            <div class="ui article-content">
+                <div class="extra-padding">
+                    <h1 style="margin-bottom: 15px;font-size: 2rem">
+                        <div class="pull-left">
+                            <span style="line-height: 34px;">{{.details.Title}}</span>
+                        </div>
+                        <div class="clearfix"></div>
+                    </h1>
+                    <p class="book-article-meta" style="margin-bottom: 10px;">
+                        <a href="/list?cateId={{.details.CateId}}" class="hide-on-mobile remove-padding-left">
+                            <i class="icon folder text-md" aria-hidden="true"></i> {{.details.Category.CateName}}
+                        </a>
+                        <span class="divider">/</span>
+                        <span class="text-mute"><i class="icon eye open"></i> {{.details.View}}</span>
+{{/*                        <span class="divider">/</span>*/}}
+{{/*                        <span class="text-mute"><i class="icon comments outline"></i> {{.details.Comment}}</span>*/}}
+                        <span class="divider">/</span>
+                        <a class="">发布于 <span title="{{.details.Article.CreatedAt}}">{{formatAsDate .details.Article.CreatedAt}}</span></a>
+                        <span class="divider">/</span>
+                        <a class="hide-on-mobile">
+                            <img src="{{.details.Avatar}}" style="vertical-align: middle;border-radius: 2px;margin: -3px 3px 0 0" width="15">
+                            作者: <a href="/center/{{.details.UserId}}" title="{{.details.Nickname}}">{{.details.Nickname}}</a>
+                        </a>
+                    </p>
+                    <div class="ui divider"></div>
+                    <div class="ui markdown-body content-body">
+                        <div id="content" style="text-align: left"></div>
+                        <div>
+                            <blockquote style="font-size: 0.9em;">
+                                尊重作者，尊重原创，转载必须注明作者和本文链接
+                            </blockquote>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {{end}}
+    <div style="clear: both"></div>
+    <script src="/statics/js/marked.js"></script>
+    <script src="/statics/prism/prism.js?v=2"></script>
+    <script>
+        document.getElementById('content').innerHTML =
+            marked("{{.details.Content}}");
+    </script>
+    {{ template "layout/footer" .}}
+{{ end }}

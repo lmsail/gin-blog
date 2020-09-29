@@ -1,0 +1,58 @@
+{{define "layout/header"}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ .title }}</title>
+    {{ template "layout/meta" .}}
+    <style>body{padding-top:56px;}</style>
+</head>
+<body>
+<div class="ui top fixed borderless huge inverted menu ">
+    <div class="ui container">
+        <a href="/" class="header item">{{ .app_name }}</a>
+        <a href="/" class="item">首页</a>
+        <a href="/list" class="item">博客列表</a>
+        <a href="/time" class="item" style="display: none">时间线</a>
+        <a href="/about" class="item">关于我</a>
+        <a href="/chat" class="item">在线客服</a>
+        <div class=" right menu stackable secondary">
+            {{if .self.ID}}
+                <div class="ui simple item dropdown article stackable nav-user-item  secondary">
+                    <i class="icon paint brush"></i>  <i class="dropdown icon"></i>
+                    <div class="ui menu stackable">
+                        <a href="/write" class="item no-pjax">
+                            <i class="icon paint brush"></i> 新建博文
+                        </a>
+                    </div>
+                </div>
+
+                <div class="ui simple item dropdown article stackable nav-user-item">
+                    <img class="ui avatar image" src="{{.self.Avatar}}" onerror="javascript:this.src='/statics/imgs/avatar/avatar.png';">
+                    &nbsp;{{.self.Nickname}}  <i class="dropdown icon"></i>
+                    <div class="ui menu stackable">
+                        <a href="/center/{{.self.ID}}" class="item">
+                            <i class="icon user"></i>
+                            个人中心
+                        </a>
+                        <a href="/edit" class="item">
+                            <i class="icon settings"></i>
+                            编辑资料
+                        </a>
+                        <a class="item no-pjax" href="/logout">
+                            <i class="icon sign out"></i>
+                            退出
+                        </a>
+                    </div>
+                </div>
+            {{else}}
+                <div class="item rm-link-color">
+                    <a class="mr-4 no-pjax login_required" href="/login"><i class="icon sign in "></i> 登录 </a>
+                    <a class="no-pjax" href="/register" style="margin-left: 10px;"><i class="icon user add "></i> 注册 </a>
+                </div>
+            {{end}}
+        </div>
+    </div>
+</div>
+<div class="ui hidden divider"></div>
+{{end}}

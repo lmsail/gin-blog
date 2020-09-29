@@ -1,0 +1,57 @@
+{{ define "chat/index" }}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>在线客服</title>
+    <style>
+        .container { padding: 20px 100px }
+        .message { background: #eee;width: 100%;height: 500px;margin: 0 auto; padding: 15px;overflow: auto }
+        .message .item { line-height: 30px }
+        .message .system.in { color: #0ea432; }
+        .message .system.out { color: red; }
+        .send { width: 100% }
+        .send input { width: 90%;height: 30px;margin-top: 15px; font-size: 16px; text-indent: 15px }
+        .send button { width: 9%;height: 35px; border: none; background: #0d71bb;color: #fff }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>在线客服</h1>
+        <div class="message" id="message"></div>
+        <div class="send">
+            <label><input type="text" id="messText" /></label>
+            <button onclick="sendChat()">发送</button>
+        </div>
+    </div>
+    <script>
+
+        system("服务器连接中...", "out")
+        setTimeout(() => { system("服务器已连接，通讯正常", "in") }, 1000)
+        setTimeout(() => { system("大白进入群聊", "in") }, 2000)
+
+        function sendChat() {
+            const messDom = document.getElementById("messText")
+            send("大白", messDom.value)
+            messDom.value = ""
+        }
+
+        function send(username, message) {
+            document.getElementById("message").innerHTML += `
+                <div class="item"><span class="user">${username}：</span>${message}</div>
+            `
+        }
+
+        function system(message, type) {
+            document.getElementById("message").innerHTML += `
+                <div class="item system ${type}">系统消息：${message}</div>
+            `
+        }
+
+        function message() {
+
+        }
+    </script>
+</body>
+</html>
+{{end}}

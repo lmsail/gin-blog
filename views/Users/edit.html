@@ -1,0 +1,114 @@
+{{ define "users/edit" }}
+    {{ template "layout/header" .}}
+    <div class="ui container">
+        <div class="ui padded grid stackable">
+            <div class="four wide column computer only">
+                <div class="ui card">
+                    <div class="image">
+                        <img src="{{.self.Avatar}}" onerror="javascript:this.src='/statics/imgs/avatar/avatar.png';">
+                    </div>
+                    <div class="content">
+                        <a class="header">{{.self.Nickname}}</a>
+                        <div class="meta">
+                            <span class="date">{{formatAsDate .self.CreatedAt}} 加入本站</span>
+                        </div>
+                        <div class="description">{{.self.Autograph}} </div>
+                    </div>
+                    <div class="extra content">
+                        <a><i class="thumbtack icon"></i> {{.self.Introduction}} </a>
+                    </div>
+                </div>
+                <div class="ui cards">
+                    <div class="card">
+                        <div class="content">
+                            <img class="right floated mini ui image" src="/statics/imgs/mr.bo.png">
+                            <div class="header">Mr.bo @ 站长 </div>
+                            <div class="meta">A PHP Developer </div>
+                            <div class="description">90后 | Mr.bo | 坐标江苏 </div>
+                        </div>
+                        <div class="extra content">
+                            <div class="ui two buttons">
+                                <a class="ui basic green button" href="https://github.com/lmsail" target="_blank">Gitree</a>
+                                <a class="ui basic blue button" href="https://github.com/lmsail">Github</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="twelve wide column">
+                <div class="ui stacked segment">
+                    <div class="content">
+                        <h4><i class="icon edit" aria-hidden="true"></i> 修改资料</h4>
+                        <div class="ui divider"></div>
+                        {{if .errorMsg}}
+                            <div class="ui centered grid container message-container">
+                                <div class="sixteen wide column">
+                                    <div class="ui red message positive">
+                                        {{.errorMsg}}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-20"></div>
+                        {{end}}
+                        <form class="ui form" method="POST" action="/edit" enctype="multipart/form-data">
+                            <div class="two fields">
+                                <div class="ten wide field ">
+                                    <label for="">用户名</label>
+                                    <input type="text" value="{{.self.Username}}" disabled>
+                                </div>
+                            </div>
+
+                            <div class="two fields">
+                                <div class="ten wide field ">
+                                    <label for="wechat_qrcode">头像</label>
+                                    <input type="file" name="avatar" accept="image/*"  class="image-upload-input">
+                                </div>
+                                <div class="six wide field mt-30">
+                                    不更改可不选择
+                                </div>
+                            </div>
+
+                            <div class="two fields">
+                                <div class="ten wide field ">
+                                    <label for="">昵称</label>
+                                    <input name="nickname" required type="text" value="{{.self.Nickname}}">
+                                </div>
+                                <div class="six wide field mt-30">如：帅气如我</div>
+                            </div>
+
+                            <div class="two fields">
+                                <div class="ten wide field ">
+                                    <label for="">个人网站</label>
+                                    <input name="personal_website" type="text" value="{{.self.PersonalWebsite}}">
+                                </div>
+                                <div class="six wide field mt-30">如：example.com</div>
+                            </div>
+
+                            <div class="two fields">
+                                <div class="ten wide field ">
+                                    <label for="">个人简介</label>
+                                    <textarea rows="3" name="introduction" cols="50" style="overflow: hidden; overflow-wrap: break-word; resize: none; height: 96px;">{{.self.Introduction}}</textarea>
+                                </div>
+                                <div class="six wide field mt-30">简单介绍以下自己</div>
+                            </div>
+
+                            <div class="two fields">
+                                <div class="ten wide field ">
+                                    <label for="">个性签名</label>
+                                    <textarea rows="3" name="autograph" cols="50" style="overflow: hidden; overflow-wrap: break-word; resize: none; height: 96px;">{{.self.Autograph}}</textarea>
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <div class="col-sm-offset-2 col-sm-6">
+                                    <input class="ui button primary" type="submit" value="应用修改">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{ template "layout/footer" .}}
+{{ end }}
